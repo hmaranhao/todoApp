@@ -1,10 +1,11 @@
 import { InMemoryTodoRepository } from "../../../../tests/repositories/inMemoryTodoRepository"
-import { CreateTodoUseCase } from "./CreateTodoUseCase"
+
+import { TodoUseCase } from "./TodoUseCase"
 
 describe('Create todo use case', () => {
   it('should to create a todo', async () => {
     const todoRepository = new InMemoryTodoRepository()
-    const sut = new CreateTodoUseCase(todoRepository)
+    const sut = new TodoUseCase(todoRepository)
     const todoMock = {
       title: 'Todo Test',
       description: 'This a description for test on todo creation'

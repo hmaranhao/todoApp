@@ -5,7 +5,7 @@ export class InMemoryTodoRepository implements ITodoRepository {
   public todos: Todo[] = []
 
   async findById(_id: string): Promise<Todo> {
-    const todo = this.todos.find(todo => todo.props._id === _id)
+    const todo = this.todos.find(todo => todo._id === _id)
     if(!todo){
       throw Error('Todo does not exist.')
     }

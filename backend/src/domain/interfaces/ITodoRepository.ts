@@ -1,9 +1,9 @@
-import { TodoModel } from "../../infrastructure/postgreSQL/model/TodoModel";
+import { Todo } from "../entities/todo/Todo"
 
 export interface ITodoRepository {
-  create(model: TodoModel): Promise<TodoModel>
-  findById(_id: string): Promise<any>
-  findAll(filter: any): Promise<any[]>
-  updateById(_id: string, model: TodoModel): Promise<any>
+  create(model: Todo): Promise<Todo>
+  findById(_id: string): Promise<Todo>
+  findAll(filter: any): Promise<Todo[]>
+  updateById(_id: string, model: Todo): Promise<Todo>
   deleteById(_id: string): Promise<boolean>
 }
