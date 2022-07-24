@@ -9,7 +9,7 @@ import { DeleteTodoController } from './useCases/TodoUseCases/DeleteTodo/DeleteT
 
 const routes = Router()
 
-routes.get('/', (req, res) => res.send('Hello World!'))
+routes.get('/', (req, res) => res.send('Hello Guys! The server api of TODO App is online!'))
 routes.get('/todos', new GetTodoController().handle)
 routes.post('/todo', new CreateTodoController().handle)
 routes.put('/todo/:_id', new UpdateTodoController().handle)

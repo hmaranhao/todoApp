@@ -21,6 +21,7 @@
       "typeorm": "typeorm-ts-node-commonjs"
    },
    "dependencies": {
+      "cors": "^2.8.5",
       "express": "^4.18.1",
       "pg": "^8.4.0",
       "reflect-metadata": "^0.1.13",

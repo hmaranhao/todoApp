@@ -3,6 +3,7 @@ import "./cross-cutting"
 
 import { AppDataSource } from "./data-source"
 import express from 'express'
+import cors from 'cors'
 
 import { routes } from "./routes"
 
@@ -10,8 +11,9 @@ const app = express()
 
 AppDataSource.initialize().then(async () => {
     console.log("Here you can setup and run express / fastify / any other framework.")
-
+    app.use(cors())
     app.use(express.json())
+    
     app.use(routes)
 
     app.listen(5000, () => {
