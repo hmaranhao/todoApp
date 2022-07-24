@@ -1,5 +1,20 @@
 version: '3'
 services:
+  backend:
+    image: node:16.3.0-alpine
+    working_dir: /app
+    depends_on:
+      - db
+    networks:
+      - app-connect
+    environment:
+      POSTGRES_HOST: db
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./backend/:/app
+    command: yarn start
+
   db:
     image: 'postgres:latest'
     restart: always
@@ -12,6 +27,11 @@ services:
       - pgdata:/data/postgres
     ports:
       - "5432:5432"
+    networks:
+      - app-connect
 volumes:
   pgdata:
     driver: local
+networks:
+  app-connect:
+      driver: bridge

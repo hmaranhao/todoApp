@@ -2,9 +2,11 @@ import { DataSource } from "typeorm"
 
 import { Todo } from "./domain/entities/todo/Todo"
 
+console.log({ env: process.env.POSTGRES_HOST })
+
 export const AppDataSource = new DataSource({
     type: "postgres",
-    host: "localhost",
+    host: process.env.POSTGRES_HOST ?? "localhost",
     port: 5432,
     username: "postgres",
     password: "12345",
