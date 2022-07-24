@@ -1,3 +1,6 @@
+import "reflect-metadata"
+import "./cross-cutting"
+
 import { AppDataSource } from "./data-source"
 import express from 'express'
 

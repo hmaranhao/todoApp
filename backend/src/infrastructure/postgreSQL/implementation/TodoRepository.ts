@@ -23,7 +23,8 @@ export class TodoRepository implements ITodoRepository {
       _id
     })
     todoToUpdate = { ...todoToUpdate, ...model }
-    return await _todoRepository.save(todoToUpdate)
+    const updatedTodo = await _todoRepository.save(todoToUpdate)
+    return Object.assign(todoToUpdate, updatedTodo)
   }
 
   async deleteById(_id: string) {

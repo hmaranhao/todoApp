@@ -1,20 +1,18 @@
 import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
 
-import { BaseEntity } from '../../shared'
-
 export enum status {
   pending = 0,
   inProgress = 1,
   done = 2
 }
 
-@Entity("todo")
+@Entity("todos")
 export class Todo {
   @PrimaryGeneratedColumn('uuid')
   _id?: string
 
   @Column('varchar')
-  title: string
+  title?: string
 
   @Column({ type: 'text', default: null })
   description?: string
@@ -22,25 +20,48 @@ export class Todo {
   @Column({ type: 'int', default: 0 })
   status?: status
 
-  @Column({ type: 'date', default: new Date() })
+  @Column({ type: 'timestamptz', default: new Date() })
   createdAt?: Date
 
-  @Column({ type: 'date', default: null })
+  @Column({ type: 'timestamptz', default: null })
   startedAt?: Date
 
-  @Column({ type: 'date', default: null })
+  @Column({ type: 'timestamptz', default: null })
   finishedAt?: Date
-}
 
-export class TodoEntity extends BaseEntity<Todo> {
-  private constructor(props: Todo, _id?: string) {
-    super(props, _id);
+  constructor(props: Todo){
+    Object.assign(this, props)
   }
 
-  static create(props: Todo, _id?: string) {
-    const _todo = new TodoEntity({
+  static create(props: Todo) {
+    const _todo = new Todo({
       ...props,
-      createdAt: new Date()
+      createdAt: new Date(),
+    })
+    return _todo
+  }
+
+  static update(props: Todo) {
+    const _todo = new Todo({
+      ...props
+    })
+    return _todo
+  }
+
+  static start(props: Todo) {
+    const _todo = new Todo({
+      ...props,
+      startedAt: new Date(),
+      status: status.inProgress
+    })
+    return _todo
+  }
+
+  static finish(props: Todo) {
+    const _todo = new Todo({
+      ...props,
+      finishedAt: new Date(),
+      status: status.done
     })
     return _todo
   }

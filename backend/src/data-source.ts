@@ -1,4 +1,3 @@
-import "reflect-metadata"
 import { DataSource } from "typeorm"
 
 import { Todo } from "./domain/entities/todo/Todo"
