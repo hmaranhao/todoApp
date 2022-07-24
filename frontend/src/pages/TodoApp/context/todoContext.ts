@@ -24,7 +24,8 @@ interface ITodoContext {
   deleteTodo: (_id?: string) => void,
   postTodo: (form: ITodo) => void,
   todos: ITodo[],
-  setAddOrEditTodoModal: (item: { open: boolean, data?: any}) => void
+  setAddOrEditTodoModal: (item: { open: boolean, data?: any}) => void,
+  filterTodos: ({ search, status }: { search?: string, status?: string }) => void
 }
 
 export const TodoContext = createContext<ITodoContext>({
@@ -35,5 +36,6 @@ export const TodoContext = createContext<ITodoContext>({
   deleteTodo: (_id?: string) => null,
   todos: [],
   setAddOrEditTodoModal: (item: { open: boolean, data?: any}) => null,
-  postTodo: (form: ITodo) => null
+  postTodo: (form: ITodo) => null,
+  filterTodos: ({ search, status }: { search?: string, status?: string }) => null
 })

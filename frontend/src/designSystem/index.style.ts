@@ -10,7 +10,7 @@ export const Title = styled.h1`
 export const Button = styled.button<{ bgColor?: string }>`
   color: ${props => props.color ?? '#000'};
   margin: 0px 5px 0px 0px;
-  padding: 8px;
+  padding: 6px;
   cursor: pointer;
   font-family: 'Rubik Moonrocks', cursive;
   border: 1px solid #ccc;
@@ -19,6 +19,9 @@ export const Button = styled.button<{ bgColor?: string }>`
   background-color: ${props => props.bgColor ?? '#fff'};
   &:hover {
     transform: scale(1.05)
+  }
+  @media(max-width: 700px) {
+    width: 100%;
   }
 `
 
