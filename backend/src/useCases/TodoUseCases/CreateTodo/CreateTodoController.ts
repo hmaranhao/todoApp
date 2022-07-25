@@ -8,7 +8,7 @@ export class CreateTodoController {
     const _createTodoUseCase = container.resolve(CreateTodoUseCase)
     const { title, description } = req.body
 
-    if(!description){
+    if(!title){
       return resp.status(400).json('Title is required.')
     }
 

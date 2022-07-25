@@ -25,7 +25,7 @@ services:
       - '5000:5000'
     volumes:
       - ./backend/:/app
-    command: yarn start  
+    command: yarn start-dev  
 
   db:
     image: 'postgres:latest'

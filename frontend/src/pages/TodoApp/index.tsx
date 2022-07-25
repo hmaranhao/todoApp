@@ -22,7 +22,7 @@ export function TodoApp() {
   }
 
   const removeTodoState = (todo: ITodo) => {
-    return todos?.filter(t => t._id === todo._id)
+    return todos?.filter(t => t._id !== todo._id)
   }
 
   const loadTodos = () => api.get('/todos').then(resp => {
@@ -31,12 +31,14 @@ export function TodoApp() {
   })
   const putTodo = (_id: string, form: ITodo) => api.put(`/todo/${_id}`, form).then(resp => {
     setTodos(updateTodoState(resp.data))
+    setTodosFiltered(updateTodoState(resp.data))
     setAddOrEditTodoModal({ open: false })
   })
   const startTodo = (_id?: string) => {
     if (_id) {
       api.put(`/todo/${_id}/start`).then(resp => {
         setTodos(updateTodoState(resp.data))
+        setTodosFiltered(updateTodoState(resp.data))
         setAddOrEditTodoModal({ open: false })
       })
     }
@@ -45,6 +47,7 @@ export function TodoApp() {
     if (_id) {
       api.put(`/todo/${_id}/finish`).then(resp => {
         setTodos(updateTodoState(resp.data))
+        setTodosFiltered(updateTodoState(resp.data))
         setAddOrEditTodoModal({ open: false })
       })
     }
@@ -54,6 +57,7 @@ export function TodoApp() {
       api.delete(`/todo/${_id}`).then(resp => {
         if (resp.data) {
           setTodos(removeTodoState({ _id }))
+          setTodosFiltered(removeTodoState({ _id }))
         }
         setAddOrEditTodoModal({ open: false })
       })
@@ -61,6 +65,7 @@ export function TodoApp() {
   }
   const postTodo = (form: ITodo) => api.post(`/todo`, form).then(resp => {
     setTodos([...todos, resp.data])
+    setTodosFiltered([...todos, resp.data])
     setAddOrEditTodoModal({ open: false })
   })
 
