@@ -20,6 +20,7 @@ services:
       - app-connect
     environment:
       POSTGRES_HOST: db
+      DATABASE_URL: postgres://postgres:12345@db:5432/todo_app
     ports:
       - '5000:5000'
     volumes:
