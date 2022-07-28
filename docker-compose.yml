@@ -3,13 +3,11 @@ services:
   frontend:
     image: node:16.3.0-alpine
     working_dir: /app
-    depends_on:
-      - backend
     ports:
       - '5173:5173'
     volumes:
       - ./frontend/:/app
-    command: yarn dev
+    command: sh -c "yarn && yarn dev"
 
   backend:
     image: node:16.3.0-alpine
@@ -25,7 +23,7 @@ services:
       - '5000:5000'
     volumes:
       - ./backend/:/app
-    command: yarn start-dev  
+    command: sh -c "yarn && yarn start-dev"  
 
   db:
     image: 'postgres:latest'
