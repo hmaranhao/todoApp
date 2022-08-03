@@ -3,6 +3,8 @@ services:
   frontend:
     image: node:16.3.0-alpine
     working_dir: /app
+    environment:
+      VITE_API_SERVER: http://localhost:5000/
     ports:
       - '5173:5173'
     volumes:
