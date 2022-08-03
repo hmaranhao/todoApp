@@ -27,7 +27,7 @@
       "start-dev": "ts-node src/index.ts",
       "dev": "nodemon --exec ts-node src/index.ts",
       "typeorm": "typeorm-ts-node-commonjs",
-      "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored"
+      "build": "NODE_TLS_REJECT_UNAUTHORIZED='0' babel src --extensions \".js,.ts\" --out-dir dist --copy-files --no-copy-ignored"
    },
    "dependencies": {
       "cors": "^2.8.5",
