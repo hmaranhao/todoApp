@@ -9,7 +9,6 @@ export class UpdateTodoController {
     const { title, description, status } = req.body
     const { _id } = req.params
     const _todo = await _updateTodoUseCase.execute({ _id: _id.toString(), title, description, status })
-    console.log({ _todo })
     if (_todo instanceof Error) {
       return resp.status(400).json(_todo.message)
     }

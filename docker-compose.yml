@@ -24,6 +24,7 @@ services:
       NODE_ENV: development
     ports:
       - '5000:5000'
+      - '9230:9230'
     volumes:
       - ./backend/:/app
     command: sh -c "yarn && yarn start-dev"  

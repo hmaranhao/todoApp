@@ -7,7 +7,6 @@ export class GetTodoController {
   async handle(req: Request, resp: Response) {
     const _getTodoUseCase = container.resolve(GetTodoUseCase)
     const _todo = await _getTodoUseCase.execute(req.body)
-    // console.log({ _todo })
     if (_todo instanceof Error) {
       return resp.status(400).json(_todo.message)
     }

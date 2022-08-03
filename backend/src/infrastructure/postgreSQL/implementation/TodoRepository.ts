@@ -19,12 +19,12 @@ export class TodoRepository implements ITodoRepository {
   }
 
   async updateById(_id: string, model: Todo) {
-    let todoToUpdate = await _todoRepository.findOneBy({
+    await _todoRepository.save(model)
+    const todoToUpdate = await _todoRepository.findOneBy({
       _id
     })
-    todoToUpdate = { ...todoToUpdate, ...model }
-    const updatedTodo = await _todoRepository.save(todoToUpdate)
-    return Object.assign(todoToUpdate, updatedTodo)
+    console.log({ todoToUpdate })
+    return todoToUpdate
   }
 
   async deleteById(_id: string) {

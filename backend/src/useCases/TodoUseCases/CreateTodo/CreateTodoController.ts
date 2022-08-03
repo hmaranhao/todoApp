@@ -13,7 +13,6 @@ export class CreateTodoController {
     }
 
     const _todo = await _createTodoUseCase.execute({ title, description })
-    console.log({ _todo })
     if (_todo instanceof Error) {
       return resp.status(400).json(_todo.message)
     }

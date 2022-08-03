@@ -8,7 +8,6 @@ export class DeleteTodoController {
     const _deleteTodoUseCase = container.resolve(DeleteTodoUseCase)
     const { _id } = req.params
     const _todo = await _deleteTodoUseCase.execute({ _id: _id.toString() })
-    console.log({ _todo })
     if (!_todo) {
       return resp.status(400).json(_todo)
     }
