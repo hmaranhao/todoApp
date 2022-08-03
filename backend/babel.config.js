@@ -13,7 +13,8 @@ module.exports = {
   plugins: [
     ['module-resolver'],
     ["@babel/plugin-proposal-decorators", { legacy: true }],
-    ["@babel/plugin-proposal-class-properties", { legacy: true }]
+    ["@babel/plugin-proposal-class-properties", { legacy: true }],
+    "babel-plugin-transform-typescript-metadata"
   ],
   ignore: [
     '**/*.spec.ts'
