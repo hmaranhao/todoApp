@@ -22,6 +22,7 @@ A simple application of TO DO
 [![Jest](https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=white)](https://github.com/hmaranhao/todoApp)
 
 ### Git Stats
+
 [![Downloads](https://img.shields.io/github/downloads/hmaranhao/todoApp/total.svg)](https://github.com/hmaranhao/todoApp)
 [![Forks](https://img.shields.io/github/forks/hmaranhao/todoApp.svg)](https://github.com/hmaranhao/todoApp)
 [![Stars](https://img.shields.io/github/stars/hmaranhao/todoApp.svg)](https://github.com/hmaranhao/todoApp)
