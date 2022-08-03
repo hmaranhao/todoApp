@@ -14,4 +14,5 @@ export const AppDataSource = new DataSource({
         './migrations/*.ts'
     ],
     subscribers: [],
+    ssl: true
 })
