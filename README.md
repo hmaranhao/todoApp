@@ -3,7 +3,7 @@
 [![WebsiteUp](https://img.shields.io/website-up-down-green-red/http/monip.org.svg)](https://github.com/hmaranhao/todoApp)
 [![AskMe](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](https://github.com/hmaranhao/todoApp)
 
-A simple application of TODO to exercise my skills
+A simple application of TO DO
 
 > Run application with docker-compose up frontend command
 
