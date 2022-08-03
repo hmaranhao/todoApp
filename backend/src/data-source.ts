@@ -2,7 +2,7 @@ import { DataSource } from "typeorm"
 
 import { Todo } from "./domain/entities/todo/Todo"
 
-console.log({ env: process.env.DATABASE_URL })
+console.log({ envs: [process.env.DATABASE_URL, process.env.NODE_ENV] })
 
 export const AppDataSource = new DataSource({
     type: "postgres",
@@ -14,5 +14,5 @@ export const AppDataSource = new DataSource({
         './migrations/*.ts'
     ],
     subscribers: [],
-    ssl: true
+    ssl: !!(process.env.NODE_ENV === 'production')
 })

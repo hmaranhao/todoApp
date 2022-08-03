@@ -4,4 +4,4 @@ import { TodoRepository } from './../infrastructure/postgreSQL/implementation/To
 import { ITodoRepository } from "../domain/interfaces/ITodoRepository"
 
 
-container.registerSingleton<ITodoRepository>("TodoRepository", TodoRepository)
+container.register<ITodoRepository>("TodoRepository", TodoRepository)
